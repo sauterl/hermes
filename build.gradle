@@ -1,16 +1,35 @@
 plugins {
     id 'idea'
+    id 'java'
+    id 'application'
     id 'org.jetbrains.kotlin.jvm' version '1.4.31'
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.4.31'
 
 }
 
-group 'ch.unibas.dmi.dbis'
+group 'com.github.sauterl'
 version '1.0-SNAPSHOT'
+
+mainClassName = 'com.github.sauterl.hermes.Hermes'
+applicationDefaultJvmArgs = ["-Xms2G", "-Xmx4G"]
+
+sourceCompatibility = 1.11
 
 repositories {
     mavenCentral()
 }
+
+jar{
+    from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+        configurations.runtimeClasspath.collect{ it.isDirectory() ? it : zipTree(it)}
+    }
+    manifest{
+        attributes 'Main-Class': mainClassName
+        attributes 'Multi-Release':true
+    }
+}
+
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
