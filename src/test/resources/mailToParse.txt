@@ -1,0 +1,7 @@
+Subject:Test Email Subject $name
+From:me@mail.com
+To:alice@mail.com
+
+Hey $name
+Did you know $value
+Best

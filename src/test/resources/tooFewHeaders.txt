@@ -1,0 +1,4 @@
+from:me@mail.com
+to:alice@mail.com
+
+Some email body which will not parsed, as there is the subject header missing
