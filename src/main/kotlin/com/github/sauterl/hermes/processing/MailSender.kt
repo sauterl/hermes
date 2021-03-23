@@ -9,7 +9,7 @@ object MailSender {
 
     fun send(mail: Mail, credentials: Credentials, simulate: Boolean = false){
         val email = SimpleEmail()
-//        email.setDebug(true)
+        email.setDebug(true)
 
         email.hostName = credentials.host
         email.setSmtpPort(credentials.port)
